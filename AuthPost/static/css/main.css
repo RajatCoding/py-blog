@@ -1,0 +1,44 @@
+body{
+
+    color: whitesmoke;
+    background-color: rgb(58, 50, 70)
+}
+
+#post-date{
+    color: bisque;
+    
+
+}
+#post-author{
+    color: bisque;
+    float: right;
+   
+   
+    font-size: large;
+}
+#post-title{
+    color: bisque;
+    border-bottom: 2px solid bisque;
+  
+}
+#post-box{
+
+    border: 2px solid whitesmoke;
+    border-radius: 7px;
+
+}
+
+#dash-edit-profile {
+
+text-decoration: none;
+color: aquamarine;
+
+}
+#dash-edit-profile:hover{
+
+    color: blueviolet;
+}
+#create-post{
+margin: 25;
+
+}

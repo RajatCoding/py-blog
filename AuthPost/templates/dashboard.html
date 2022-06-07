@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %} Dashboard {% endblock title%}
+
+
+{% block content %}
+<div class="col-md-8 mt-5">
+    <h3>Your Posts</h3>
+    <a href="{% url 'createpost' %}" class="btn btn-success mt-2 mx-5" id="create-post">Create New Post</a>
+    {% if posts %}
+    {% for post in posts %}
+    <div class="bg-secondary p-4 my-5" id="post-box">
+
+        <h3 id="post-title">{{post.title|title}}</h3>
+        <a href="{% url 'updatepost' post.id %}" class="btn btn-warning">Update</a>
+        <a href="{% url 'deletepost' post.id %}" class="btn btn-danger">Delete</a>
+
+        <p>{{post.description}}</p>
+
+        <sub class="auth-date px-1" id="post-date">{{post.date_posted}} </sub>
+        <strong class="auth-date" id="post-author">~{{post.author.first_name}}</strong>
+    </div>
+    {% endfor %}
+    {% else %}
+    {% endif %}
+</div>
+{% endblock content %}
+
+
+{% block leftside %}
+<div class="content-section mt-3">
+    <img src="{{ user.profile.image.url }}" class="mr-4 rounded-circle account-img">
+    <h6 class="col-md-2 mx-2">Hii</h6>
+    <h3>{{user.first_name}}</h3>
+    <a href="{% url 'edit_profile' user.id %}" id="dash-edit-profile" class="col-md-2 ">Edit Profile</a>
+</div>
+{% endblock leftside %}

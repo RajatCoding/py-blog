@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-8 mt-5">
+           <h2>Home</h2> 
+        </div></div></div>
+<div class="container-fluid mx-5">
+    <div class="row">
+        <div class="col-sm-8 ">
+            {% if post %}
+        {% for tost in post %}
+            <div class="bg-secondary p-4 my-5" id="post-box">
+                
+                <h3 id="post-title">{{tost.title|title}}</h3>
+                <p>{{tost.description|truncatewords:50}}
+                    {% if tost.description|length >= 50 %}
+                    <a href="{% url 'detailpost' tost.id %}" style="text-decoration:underline;color:antiquewhite">  See more</a>{% endif %}
+                </p>
+                 
+                <sub class="auth-date px-1" id="post-date">{{tost.date_posted}} </sub>
+                <strong class="auth-date" id="post-author">~{{tost.author.first_name}}</strong>
+            </div>
+        {% endfor %}
+            {% else %}
+            <h3 class="bg-danger">Post is not available</h3>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

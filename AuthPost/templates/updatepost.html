@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Update Post{% endblock title%}
+
+
+{% block content %}
+<form action="" method="post" class="col-md-10 mt-5">{% csrf_token%}
+    <legend>Update Your Post</legend>
+    {{form|crispy}}
+    <div class="d-grid gap-2">
+        <input type="submit" value="Update" class="btn btn-success mt-3"> 
+    </div>
+</form>
+
+
+{% endblock content%}

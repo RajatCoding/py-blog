@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}{{user.first_name}}Profile{% endblock title %}
+{% block content %}
+
+
+
+<div class="container" >
+    <div class="row">
+        <h3 class="col-sm-8 offset-1">Edit Your Porfile here </h3>
+        <div class="col-md-8 offset-2 mt-3" id="profile-updtae-form" >
+            <form action="" method="post">
+                {% csrf_token %}
+                {{form|crispy}}
+                <div class="d-grid gap-2">
+                <input type="submit" value="Update" class="btn btn-success mt-3">
+            </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
